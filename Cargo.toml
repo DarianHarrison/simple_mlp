@@ -1,0 +1,13 @@
+[package]
+name = "rhagle"
+version = "0.1.0"
+authors = ["Darian Harrison <darianharrison89@gmail.com>"]
+edition = "2018"
+description = "Approximate Graph LEarning"
+
+[dependencies]
+rand = { version = "0.8.4", features = ["std_rng"] }
+tch = "0.5.0"
+anyhow = "1.0.44"
+config = "0.11"
+serde = {version = "1.0", features = ["derive"] }

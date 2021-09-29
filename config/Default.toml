@@ -1,0 +1,36 @@
+[data] # observation captures
+dataset = "MUTAG"
+batch_size = "32"
+shuffle = "true"
+fold_idx = "0"
+degree_as_tag = "false"
+seed = "0"
+labels = "2"
+predict_data = "MUTAG_ONE"
+max_param_length = "28" # used for padding, this is result of observing data figure out how to integrate beforehand
+
+[nn] # compute block structure, (note: this can possibly be compressed)
+num_layers = "5"
+num_mlp_layers = "2"
+hidden_dim = "64"
+
+[aggregation] # Entropy Capture
+graph_pooling_type = "SUM" # SUM, AVERAGE
+neighbor_pooling_type = "SUM" # SUM, AVERAGE
+
+[learning] # loss optimization/target adjustment
+lr = "0.01"
+learn_eps = "false"
+final_dropout = "0.5"
+
+[iterations] # nn cycles (note: what if we dont need multiple data passes (epochs), and we do only few ore one data pass with carefully selected minibatches ?)
+epochs = "30"
+iters_per_epoch = "50"
+
+[torch] # mount compute structure to device
+device = "0"
+
+[store] # transformed data store
+features = "features.pt"
+weights = "weights.pt"
+predictions = "predictions.pt"
